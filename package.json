@@ -1,0 +1,24 @@
+{
+  "name": "posimai-station-app",
+  "version": "0.1.0",
+  "description": "Posimai Station — standalone desktop app for infrastructure monitoring",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:linux": "electron-builder --linux",
+    "sync-renderer": "cp renderer/station.html ../posimai-dev/station.html"
+  },
+  "devDependencies": {
+    "electron": "^34.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.posimai.station",
+    "productName": "Posimai Station",
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Utility"
+    },
+    "files": ["main.js", "preload.js", "renderer/**"]
+  }
+}
