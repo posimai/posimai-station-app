@@ -19,7 +19,10 @@ function createWindow() {
     },
   });
 
-  win.loadFile(path.join(__dirname, 'renderer', 'station.html'));
+  // Design B（バイナリ雨オーロラ背景）をメインとして起動
+  // Design A に切り替えたい場合: DESIGN=a npm start
+  const design = process.env.DESIGN === 'a' ? 'station.html' : 'station-b.html';
+  win.loadFile(path.join(__dirname, 'renderer', design));
 }
 
 app.whenReady().then(createWindow);
